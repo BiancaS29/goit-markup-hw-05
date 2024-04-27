@@ -67,16 +67,54 @@ body {
     margin-right: 385px;
 }
 
-.header__navigation a, 
+.header__navigation a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.15;
+    color: var(--black);
+    position: relative;
+    transition: color, background-color;
+    transition-duration: -250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header__navigation a:hover {
+    color: var(--blue);
+}
+
+.header__navigation a::after,
+.header__navigation a:active::after {
+    content: '';
+    height: 4px;
+    width: 0%;
+    border-radius: 2px;
+    position: absolute;
+    top: 44px;
+    left: 0;
+    background-color: var(--blue);
+    color: var(--blue);
+    transition-duration: 0.5s;
+    transition-property: width;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+.header__navigation a:hover::after, 
+.header__navigation a:active::after {
+    width: 100%;
+}
+
 .header__contact {
     text-decoration: none;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.15;
     color: var(--black);
+    transition: color, background-color;
+    transition-duration: -250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.header__navigation a:hover, 
 .header__contact:hover {
     color: var(--blue);
 }
@@ -92,6 +130,9 @@ body {
 .icon__contact {
     width: 16px;
     height: 12px;
+    transition: color, background-color;
+    transition-duration: -250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon__contact:hover,
@@ -137,6 +178,9 @@ body {
 .footer__contact p {
     color: var(--light-grey);
     margin-bottom: 12px;
+    transition: color, background-color;
+    transition-duration: -250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer__contact p:hover,
@@ -159,6 +203,9 @@ body {
     display: flex;
     justify-content: center;
     gap: 10px;
+    transition: color, background-color;
+    transition-duration: -250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer__list li {
@@ -178,7 +225,6 @@ body {
     width: 20px;
     height: 20px;
 }
-
 
 /* Stilizare Homepage*/
 
@@ -224,6 +270,8 @@ body {
     margin-bottom: 200px;
 }
 
+
+
 /*Stilizare About us Section*/
 
 .container .about__list {
@@ -268,6 +316,30 @@ body {
     line-height: 1.16;
     text-align: center;
     margin-bottom: 50px;
+}
+
+.activity__image {
+    position: relative;
+}
+
+.activity__overlay {
+    position: absolute;
+    width: 370px;
+    height: 70px;
+    top: auto;
+    bottom: 0;
+    left:0;
+    background-color: rgba(47, 48, 58, 0.8);
+}
+
+.overlay__text {
+    font-family: var(--primary-font);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    color: var(--white);
+    padding: 27px 120px;
 }
 
 /*Stilizare Our Team Section*/
@@ -370,6 +442,9 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 30px;
+    transition: color, background-color;
+    transition-duration: -250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customer__list li:hover,
@@ -400,6 +475,9 @@ body {
     border-radius: 4px;
     border: none;
     padding: 6px 22px;
+    transition: color, background-color;
+    transition-duration: -250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .category__button:hover,
@@ -422,6 +500,11 @@ body {
 
 .project__card {
     border-bottom: 1px solid #EEEEEE;
+    position: relative;
+    overflow: hidden;
+    transition: color, background-color;
+    transition-duration: -250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project__card:hover {
@@ -429,6 +512,35 @@ body {
     0px 2px 1px 0px rgba(0, 0, 0, 0.16),
     0px 1px 1px 0px rgba(0, 0, 0, 0.6),
     0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.overlay {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 150, 243, 0.9);
+    transform: translateY(100%); 
+    transition-duration: 500ms; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.project__card:hover .overlay {
+    transform: translateY(0);
+}
+
+.overlay__paragraph {
+    font-family: var(--primary-font);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--white);
+    padding: 63px 24px 91px;
 }
 
 .project__title {
@@ -456,4 +568,44 @@ body {
 
 .section {
     padding: 94px 0;
+}
+
+/*Stilizare Modal Window*/
+
+.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+} 
+
+[data-modal] {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left:0;
+    background-color: rgba (0, 0, 0, 0 , 0.5);
+}
+
+.is-hidden [data-modal-content] {
+    transform: translate(-50px, -50px) scale(0.5);
+}
+
+[data-modal-content] {
+    width: 528px;
+    height: 581px;
+    background-color: var(--white);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition-duration: 1s;
+    padding: 20px;
+}
+
+
+[data-modal-close] {
+    top: 10px;
+    position: absolute;
+    right: 15px;
 }

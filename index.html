@@ -45,7 +45,7 @@
                 EFFECTIVE SOLUTIONS FOR <br> YOUR BUSINESS
             </h1>
             <div class="hero__btn">
-            <button class="hero__request" type="button">
+            <button data-modal-open class="hero__request" type="button">
                 Request our services
             </button>
             </div>
@@ -93,9 +93,27 @@
             <div class="container">
             <h2 class="activity__title">What we do</h2>
             <div class="activity__flex">
-            <img src="./images/img-1.jpg" alt="maini_tastand" width="370">
-            <img src="./images/img-2.jpg" alt="telefon" width="370">
-            <img src="./images/img-3.jpg" alt="tableta" width="370">
+        <!--Img 1-->
+            <div class="activity__image">
+                <div class="activity__overlay"> 
+                    <p class="overlay__text">DESKTOP APPS</p>
+                </div>
+                <img src="./images/img-1.jpg" alt="maini_tastand" width="370">
+            </div> 
+        <!--Img 2-->
+            <div class="activity__image">
+                <div class="activity__overlay">
+                    <p class="overlay__text">Mobile APPS</p>
+                </div>
+                <img src="./images/img-2.jpg" alt="telefon" width="370">
+            </div>
+        <!--Img 3-->
+            <div class="activity__image">
+                <div class="activity__overlay">
+                    <p class="overlay__text">DESIGN SOLUTIONS</p>
+                </div>
+                <img src="./images/img-3.jpg" alt="tableta" width="370">
+            </div>
             </div>
             </div>
         </section>
@@ -344,5 +362,16 @@
         </div>
         </div>
     </footer>
+
+    <div data-modal class="is-hidden">
+        <div data-modal-content>
+            <button data-modal-close type="button">X</button>
+        </div>
+    </div>
+
+
+
+
+    <script src="./modal.js"></script>
 </body>
 </html>
